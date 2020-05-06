@@ -85,7 +85,7 @@ Write a function named removeWithForEach that produces the same output as challe
 // the callback (value, index, array)
 const removeWithForEach = (arr, callback) => {
   // Solution code here...
-  arr.forEach(function (value, index, arr){
+  arr.forEach((value) => {
     callback(value, arr);
   });
   return arr;
