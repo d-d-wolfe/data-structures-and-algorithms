@@ -52,7 +52,11 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  // Solution code here...
+  return input.reduce((accArr, valArr) => {
+    return accArr + valArr.reduce((acc, val) => {
+      return acc + val;
+    }, 0);
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -68,7 +72,13 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
+  return input.map((val) => {
+    return val.filter((val2) => {
+      return ((typeof(val2) === 'number') && (val2 % 5 === 0));
+    }).map((val2) =>{
+      return Math.pow(2, val2);
+    });
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -217,7 +227,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return numbers divisible by five, then raise two to the power of the resulting numbers', () => {
     expect(divisibleByFiveTwoToThePower([[10, 20, 5, 4], [5, 6, 7, 9], [1, 10, 3]])).toStrictEqual([[1024, 1048576, 32], [32], [1024]]);
   });
