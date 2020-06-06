@@ -40,8 +40,6 @@ let $ = createSnippetWithJQuery(`
 // expect($('section:nth-child(3) h3').text()).toStrictEqual('167');
 // expect($('section:nth-child(4) p').text()).toStrictEqual('red');
 const templateWithJQuery = () => {
-  // Solution code here...
-
   starWarsPeople.forEach(value => {
     const aTempl = $('#template').clone();
     aTempl.attr('id', '');
@@ -67,7 +65,6 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
   let result = [];
-  // Solution code here...
   result.push(str);
   for (let i = 1; i <= str.length; i++) {
     const letters = str.slice((i));
@@ -85,7 +82,6 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
 const wordsToCharList = (arr) => {
-  // Solution code here...
   let returnArr = arr.split('');
   return returnArr;
 
@@ -135,8 +131,6 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
-
   recipe.ingredients.forEach(element => {
     let counter = 0;
     for (let i = 0; i < element.length; i++){
