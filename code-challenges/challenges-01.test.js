@@ -157,7 +157,7 @@ const fizzbuzz = (arr) => {
       myString+='Fizz';
     }
     if (num % 5 === 0) {
-      myString += myString === 'Fizz' ? ' Buzz': 'Buzz';
+      myString += myString ? ' Buzz': 'Buzz';
     }
     newArr.push(myString || num);
     // if (num % 3 === 0 && num % 5 === 0) {
