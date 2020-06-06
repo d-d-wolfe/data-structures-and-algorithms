@@ -10,7 +10,7 @@ There's a typo in the markup. The Pear is misspelled Perr. Use jQuery to fix the
 
 ------------------------------------------------------------------------------------------------ */
 
-const $ = createSnippetWithJQuery(`
+let $ = createSnippetWithJQuery(`
 <ul id="fruits">
   <li class="apple">Apple</li>
   <li class="orange">Orange</li>

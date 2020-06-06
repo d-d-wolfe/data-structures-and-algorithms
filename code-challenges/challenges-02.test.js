@@ -10,7 +10,6 @@ Write a function that appends ' The end.' to a string, and returns the modified 
 ------------------------------------------------------------------------------------------------ */
 
 const appendTheEnd = (str) => {
-  // Solution code here...
   let newStr = str + ' The end.';
   return newStr;
 };
@@ -31,7 +30,6 @@ expect(a).toStrictEqual(['Yes', 'it', 'is', 'Yes'])
 ------------------------------------------------------------------------------------------------ */
 
 const appendFirstToLast = (arr) => {
-  // Solution code here...
   let newEl = arr[0];
   arr.push(newEl);
 };
@@ -54,7 +52,6 @@ expect(a.yearBorn).toStrictEqual(1947);
 ------------------------------------------------------------------------------------------------ */
 
 const addBirthYearProperty = (obj, year) => {
-  // Solution code here...
   obj.yearBorn = year;
 };
 
@@ -76,7 +73,6 @@ expect(a[0].isAuthor).toStrictEqual(true);
 ------------------------------------------------------------------------------------------------ */
 
 const setStatusAsAuthor = (people) => {
-  // Solution code here...
   people.forEach(value => {
     value.isAuthor = true;
 
@@ -101,7 +97,6 @@ expect(a).toStrictEqual([1, 2, 3, 4, 5, 6, 7, 8])
 ------------------------------------------------------------------------------------------------ */
 
 const append = (arr1, arr2) => {
-  // Solution code here...
   arr2.forEach(value =>{
     arr1.push(value);
   });
