@@ -41,7 +41,7 @@ const addValues = (arr, value) => {
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
-  for (let i = 0; i < times; i++){
+  for (let i = 0; i < times; i++) {
     callback(arr, num);
   }
   return arr;
@@ -60,14 +60,12 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const removeOne = (num, arr) => {
-  // Solution code here...
   if (num % 3 === 2) {
     arr.pop();
   }
 };
 
 const removeElements = (arr, callback) => {
-  // Solution code here...
   for (let i = 0; i < arr.length; i++) {
     callback(arr[i], arr);
   }
@@ -102,7 +100,12 @@ This anonymous function should accept up to three arguments: the element, the in
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithAnon = (arr) => {
-  // Solution code here...
+  arr.forEach((value) => {
+    if (value % 3 === 2) {
+      arr.pop();
+    }
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -123,7 +126,13 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  // Solution code here...
+  const newArr = [];
+  availableItems.forEach((item) => {
+    if (item.available) {
+      newArr.push(item.name);
+    }
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -141,7 +150,27 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
+  const newArr = [];
+  arr.forEach((num) => {
+    let myString = '';
+    if (num % 3 === 0) {
+      myString+='Fizz';
+    }
+    if (num % 5 === 0) {
+      myString += myString === 'Fizz' ? ' Buzz': 'Buzz';
+    }
+    newArr.push(myString || num);
+    // if (num % 3 === 0 && num % 5 === 0) {
+    //   newArr.push('Fizz Buzz');
+    // } else if (num % 3 === 0) {
+    //   newArr.push('Fizz');
+    // } else if (num % 5 === 0) {
+    //   newArr.push('Buzz');
+    // } else {
+    //   newArr.push(num);
+    // }
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
