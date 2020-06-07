@@ -66,7 +66,7 @@ let $ = createSnippetWithJQuery(`
 {{/children}}
 <p> {{ house }} </p>
 `)
-
+// This test doesn't work, and Nicholas said we could skip it.
 const templatingWithMustache = () => {
   // const arr = [];
   // return characters.forEach(char => {
@@ -84,14 +84,14 @@ Write a function named getCourseKeys that takes in the courseInfo object and ret
 
 For example: (['name', 'duration', 'topics', 'finalExam']).
 ------------------------------------------------------------------------------------------------ */
-const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks'},
+const courseInfo = {
+  name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks' },
   topics: ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'],
   finalExam: true
 };
 
 const getCourseKeys = (obj) => {
   return Object.keys(obj);
-  // Solution code here...
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -102,7 +102,7 @@ Write a function named getHouses that returns a new array containing the names o
 
 const getHouses = (arr) => {
   let houses = [];
-  arr.forEach(obj =>{
+  arr.forEach(obj => {
     houses.push(obj.house);
   });
   return houses;
@@ -121,10 +121,14 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  arr.forEach(obj => {
-    if 
+  const newArr = Object.values(arr);
+  let result = false;
+  newArr.forEach(charVal => {
+    if (charVal.name === character && charVal.children.length > 0) {
+      result = true;
+    }
   });
-  return 
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -200,7 +204,7 @@ Run your tests from the console: jest challenges-06.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
-xdescribe('Testing challenge 1', () => {
+describe('Testing challenge 1', () => {
   test('It should return html markup with the character', () => {
     const filledTemplates = templatingWithMustache();
     expect(filledTemplates).toStrictEqual([`
@@ -213,13 +217,13 @@ xdescribe('Testing challenge 1', () => {
     * Rickon
     <p> Stark </p>
   `,
-    `
+      `
     <h2> Jon A. </h2>
     <h3> Lysa </h3>
     * Robin
     <p> Arryn </p>
   `,
-    `
+      `
     <h2> Cersei </h2>
     <h3> Robert </h3>
     * Joffrey
@@ -227,7 +231,7 @@ xdescribe('Testing challenge 1', () => {
     * Tommen
     <p> Lannister </p>
   `,
-    `
+      `
     <h2> Daenarys </h2>
     <h3> Khal Drogo </h3>
     * Drogon
@@ -235,19 +239,19 @@ xdescribe('Testing challenge 1', () => {
     * Viserion
     <p> Targaryen </p>
   `,
-    `
+      `
     <h2> Mace </h2>
     <h3> Alerie </h3>
     * Margaery
     * Loras
     <p> Tyrell </p>
   `,
-    `
+      `
     <h2> Euron </h2>
     <h3>  </h3>
     <p> Greyjoy </p>
   `,
-    `
+      `
     <h2> Jon S. </h2>
     <h3>  </h3>
     <p> Snow </p>
@@ -255,13 +259,13 @@ xdescribe('Testing challenge 1', () => {
   })
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should return the keys from an object', () => {
     expect(getCourseKeys(courseInfo)).toStrictEqual(['name', 'duration', 'topics', 'finalExam']);
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return an array of the names of the houses', () => {
     expect(getHouses(characters)).toStrictEqual(['Stark', 'Arryn', 'Lannister', 'Targaryen', 'Tyrell', 'Greyjoy', 'Snow']);
     expect(getHouses(characters).length).toStrictEqual(7);
@@ -307,6 +311,6 @@ xdescribe('Testing challenge 8', () => {
   });
 });
 
-function createSnippetWithJQuery(html){
+function createSnippetWithJQuery(html) {
   return cheerio.load(html);
 };

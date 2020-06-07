@@ -46,7 +46,8 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 ------------------------------------------------------------------------------------------------ */
 
 const validateEmail = (email) => {
-  // Solution code here...
+  let regex = /^\b([a-zA-Z0-9]+)?[.]?([a-zA-Z0-9]+)@([a-zA-Z0-9]+)(.net|.com|.org)\b/;
+  return regex.test(email);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -71,7 +72,11 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
+  const regex = /^([0-9]{3}|\([0-9]{3}\))([ -]?)([0-9]{3})([ -]?)([0-9]{4})$/gm;
+  // const alphRegex = /[a-zA-Z]/;
+  // if (alphRegex.test(phoneNumber))
+  //   return false;
+  return regex.test(phoneNumber);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -120,7 +125,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should match a basic email', () => {
     expect(validateEmail('joe@codefellows.com')).toBeTruthy();
   });
@@ -150,7 +155,7 @@ xdescribe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should match the acceptable phone number formats', () => {
     expect(validatePhoneNumber('(555) 555-5555')).toBeTruthy();
     expect(validatePhoneNumber('555 555-5555')).toBeTruthy();

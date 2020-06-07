@@ -61,7 +61,7 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -86,7 +86,18 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  const storesArr = Object.values(arr);
+  let result = 0;
+  storesArr.forEach(loc => {
+    if (loc.store === 'Pet store') {
+      loc.items.forEach(item => {
+        if (item.name === 'Treats') {
+          result = item.quantity;
+        }
+      });
+    }
+  });
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -228,7 +239,7 @@ describe('Testing challenge 3', () => {
 });
 
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return the number 24', () => {
     expect(howManyTreats(errands)).toStrictEqual(24);
   });
