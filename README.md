@@ -25,3 +25,15 @@ I used Math.floor to find the middle of the array and assigned it a variable nam
 
 ## Solution
 ![ArrayShift](../assets/arrayShift.jpg)
+
+# 3 Binary Search
+Write a function called BinarySearch which takes in 2 parameters: a sorted array and the search key. Without utilizing any of the built-in methods available to your language, return the index of the array’s element that is equal to the search key, or -1 if the element does not exist.
+
+## Challenge Description
+<!-- Description of the challenge -->
+
+## Approach & Efficiency
+I used a for loop to iterate over the array, with an if statement detailing what I wanted to return.
+
+## Solution
+<!-- Embedded whiteboard image -->
