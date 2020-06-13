@@ -14,16 +14,37 @@ class LinkedList {
     }
   }
 
-  insert() {
-
+  insert(value) {
+    let newNode = new Node(value);
+    newNode.next = this.head;
+    this.head = newNode;
+    return this;
   }
 
   toString() {
-
+    let current = this.head;
+    while(current) {
+      console.log(`{${current.value}} ->`);
+      current = current.next;
+      if (!current) {
+        console.log('NULL');
+      }
+    }
   }
 
-  includes() {
+  include(value) {
+    let current = this.head;
+    let valid = false;
 
+    while (current) {
+      if (current.value === value) {
+        valid = true;
+        break;
+      } else {
+        current = current.next;
+      }
+    }
+    return valid;
   }
 }
 
@@ -34,20 +55,6 @@ class Node {
     this.next = null;
   }
 }
-
-const linkedList = new LinkedList();
-const firstNode = new Node('some-info');
-const secondNode = new Node('second-info');
-const thirdNode = new Node('third-info');
-
-linkedList.head = firstNode;
-linkedList.head.next = secondNode;
-linkedList.head.next.next = thirdNode;
-
-linkedList.traverse();
-
-
-
 
 module.exports = {
   Node,
