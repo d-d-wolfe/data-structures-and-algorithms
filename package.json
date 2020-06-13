@@ -1,7 +1,7 @@
 {
   "name": "3-code-challenges",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Table of Contents",
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage --verbose",
@@ -16,5 +16,14 @@
     "jest": "^24.1.0",
     "mustache": "^4.0.1",
     "supertest": "^4.0.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d-d-wolfe/data-structures-and-algorithms.git"
+  },
+  "bugs": {
+    "url": "https://github.com/d-d-wolfe/data-structures-and-algorithms/issues"
+  },
+  "homepage": "https://github.com/d-d-wolfe/data-structures-and-algorithms#readme"
 }

@@ -37,3 +37,4 @@ I used a for loop to iterate over the array, with an if statement detailing what
 
 ## Solution
 <!-- Embedded whiteboard image -->
+
