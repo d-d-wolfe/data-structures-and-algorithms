@@ -47,3 +47,11 @@ linkedList.head.next.next = thirdNode;
 linkedList.traverse();
 
 
+
+
+module.exports = {
+  Node,
+  LinkedList,
+};
+
+
