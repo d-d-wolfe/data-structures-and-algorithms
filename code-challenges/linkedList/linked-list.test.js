@@ -58,3 +58,24 @@ describe('Test to make sure that the includes function works', () => {
     expect(list.include(5)).toBe(false);
   });
 });
+
+describe('Test to make sure that the append function puts a new node at the end of the list', () => {
+  it('should return the new value at the end of the list', () => {
+    let list = new linkedList.LinkedList();
+
+    list.append(1);
+    list.append(3);
+    list.append(2);
+    list.append(5);
+    expect(list.head.value).toEqual(1);
+    expect(list.head.next.value).toEqual(3);
+    expect(list.head.next.next.value).toEqual(2);
+    expect(list.head.next.next.next.value).toEqual(5);
+    // list.insert(2);
+    // list.insert(3);
+    // list.insert(1);
+    // expect(list.append(5)).toBe(1, 3, 2, 5);
+
+  });
+});
+

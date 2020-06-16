@@ -9,7 +9,7 @@ class LinkedList {
     let current = this.head;
 
     while (current) {
-      console.log(current.value);
+      // console.log(current.value);
       current = current.next;
     }
   }
@@ -23,11 +23,11 @@ class LinkedList {
 
   toString() {
     let current = this.head;
-    while(current) {
-      console.log(`{${current.value}} ->`);
+    while (current) {
+      // console.log(`{${current.value}} ->`);
       current = current.next;
       if (!current) {
-        console.log('NULL');
+        // console.log('NULL');
       }
     }
   }
@@ -46,15 +46,33 @@ class LinkedList {
     }
     return valid;
   }
+
+  append(value) {
+    if (!this.head) {
+      this.head = null;
+      return;
+    }
+    let current = this.head;
+    console.log(current);
+    console.log('value', value); // value = 5
+
+    while (current.next) {
+      current = current.next;
+    }
+    current.next = new Node(value);
+  }
 }
-
-
 class Node {
   constructor(value) {
     this.value = value;
     this.next = null;
   }
+
+
 }
+
+
+
 
 module.exports = {
   Node,
