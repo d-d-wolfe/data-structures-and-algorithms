@@ -10,8 +10,14 @@ Create a linked list and traverse it, add nodes to it, and find functions.
 
 - Define a method called includes which takes any value as an argument and returns a boolean result depending on whether that value exists as a Node’s value somewhere within the list.
 
-- Define a method called toString (or __str__ in Python) which takes in no arguments and returns a string representing all the values in the Linked List, formatted as:
+- Define a method called toString which takes in no arguments and returns a string representing all the values in the Linked List, formatted as:
 "{ a } -> { b } -> { c } -> NULL"
+
+- Define a method called append which adds a new node with the given value to the end of the list
+
+- Define a method called insertBefore which adds a new node with the given newValue before the first value node
+
+- Define a method called insertAfter which adds a new node with the given newValue after the first value node
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->

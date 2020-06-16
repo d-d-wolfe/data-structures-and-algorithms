@@ -71,11 +71,38 @@ describe('Test to make sure that the append function puts a new node at the end 
     expect(list.head.next.value).toEqual(3);
     expect(list.head.next.next.value).toEqual(2);
     expect(list.head.next.next.next.value).toEqual(5);
-    // list.insert(2);
-    // list.insert(3);
-    // list.insert(1);
-    // expect(list.append(5)).toBe(1, 3, 2, 5);
 
   });
 });
+
+describe('Test to make sure that the insertBefore function works', () => {
+  it('should return the new value before the stated value', () => {
+    let list = new linkedList.LinkedList();
+
+    list.append(1);
+    list.append(3);
+    list.append(2);
+    list.insertBefore(3, 5);
+    expect(list.head.value).toEqual(1);
+    expect(list.head.next.value).toEqual(5);
+    expect(list.head.next.next.value).toEqual(3);
+    expect(list.head.next.next.next.value).toEqual(2);
+  });
+});
+
+describe('Test to make sure that the insertAfter function works', () => {
+  it('should return the new value after the stated value', () => {
+    let list = new linkedList.LinkedList();
+
+    list.append(1);
+    list.append(3);
+    list.append(2);
+    list.insertAfter(3, 5);
+    expect(list.head.value).toEqual(1);
+    expect(list.head.next.value).toEqual(3);
+    expect(list.head.next.next.value).toEqual(5);
+    expect(list.head.next.next.next.value).toEqual(2);
+  });
+});
+
 
