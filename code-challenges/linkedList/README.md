@@ -19,6 +19,8 @@ Create a linked list and traverse it, add nodes to it, and find functions.
 
 - Define a method called insertAfter which adds a new node with the given newValue after the first value node
 
+- Write a method for the Linked List class which takes a number, "k", as a parameter. Return the nede's value that is "k" from the end of the linked list.
+
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 

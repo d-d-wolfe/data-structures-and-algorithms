@@ -105,4 +105,20 @@ describe('Test to make sure that the insertAfter function works', () => {
   });
 });
 
+describe('Test to make sure that I can find the value of k from the end of the linked list', () => {
+  it('should return the nth value', () => {
+    let list = new linkedList.LinkedList();
+
+    list.append(1);
+    list.append(3);
+    list.append(8);
+    list.append(2);
+    list.searchNode(2)
+    expect().toEqual(2);
+    // expect(searchNode(2)).toEqual(3);
+    // expect(searchNode(6)).toEqual(undefined);
+  });
+});
+
+
 
