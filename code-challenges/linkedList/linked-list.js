@@ -87,10 +87,49 @@ class LinkedList {
     while (current.value) {
       if (value === current.value) {
         newNode.next = current.next;
-        console.log(current);
         current.next = newNode;
         return;
       }
+      current = current.next;
+    }
+  }
+
+  deleteNode(delVal) {
+    let current = this.head;
+
+    while (current.next) {
+      if (current.value ===delVal) {
+        current.next === current.next.next;
+
+        return this.head;
+      }
+      current = current.next;
+    }
+    return this.head;
+  }
+
+  counter() {
+    let current = this.head;
+    let i = 0;
+    while(current) {
+      i++;
+      current = current.next;
+    }
+    return i;
+  }
+
+
+  searchNode(nth) {
+    let current = this.head;
+    let k = this.counter() - (nth);
+    let j = 0 + k - 1;
+    let i = 0;
+
+    while (current) {
+      if (i === j || j === -1) {
+        console.log('this is value', current.value);
+      }
+      i++;
       current = current.next;
     }
   }
