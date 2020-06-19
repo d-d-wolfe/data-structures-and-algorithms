@@ -182,7 +182,9 @@ function mergeLists(l1, l2, l3) {
       k++;
     }
   }
+  console.log(l3);
   return l3;
+
 }
 let testList = mergeLists(firstLinkedList, secondLinkedList, mergedList);
 testList.toString();
