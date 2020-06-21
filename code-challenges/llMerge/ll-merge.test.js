@@ -18,7 +18,7 @@ secondLinkedList.insert('5');
 describe('Testing Merged Linked Lists', () => {
   it('Should zipper two linked lists together by taking in 3 linked list variables', () => {
     // console.log(linkedList.mergeLists());
-    expect(linkedList.mergeLists(firstLinkedList, secondLinkedList, mergeList)).toStrictEqual(` { 4 } { 2 } { 9 } { 3 } { 5 } { 1 }`);
+    expect(linkedList.mergeLists(firstLinkedList, secondLinkedList).toString()).toStrictEqual(`{4} -> {2} -> {9} -> {3} -> {5} -> {1} -> NULL`);
   });
 });
 
