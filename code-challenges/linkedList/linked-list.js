@@ -125,13 +125,16 @@ class LinkedList {
     let j = 0 + k - 1;
     let i = 0;
 
+    let a = [];
+
     while (current) {
-      if (i === j || j === -1) {
-        console.log('this is value', current.value);
+      if (i === j) {
+        a.push(current.value);
       }
       i++;
       current = current.next;
     }
+    return a[0];
   }
 }
 class Node {

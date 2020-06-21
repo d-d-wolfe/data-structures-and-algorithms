@@ -110,13 +110,16 @@ describe('Test to make sure that I can find the value of k from the end of the l
     let list = new linkedList.LinkedList();
 
     list.append(1);
+    expect(list.searchNode(0)).toEqual(1);
     list.append(3);
     list.append(8);
     list.append(2);
-    list.searchNode(2)
-    expect().toEqual(2);
-    // expect(searchNode(2)).toEqual(3);
-    // expect(searchNode(6)).toEqual(undefined);
+
+    expect(list.searchNode(4)).toEqual(undefined);
+    expect(list.searchNode(3)).toEqual(1);
+    expect(list.searchNode(2)).toEqual(3);
+    expect(list.searchNode(-1)).toEqual(undefined);
+
   });
 });
 
