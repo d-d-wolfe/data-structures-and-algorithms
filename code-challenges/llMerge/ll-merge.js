@@ -22,14 +22,18 @@ class LinkedList {
   }
 
   toString() {
+    let stringOut = '';
     let current = this.head;
     while (current) {
-      console.log(`{${current.value}} ->`);
+      stringOut += (`{${current.value}} -> `);
       current = current.next;
-      if (!current) {
-        console.log('NULL');
-      }
     }
+
+    if (!current) {
+      stringOut += ('NULL');
+    }
+    console.log(stringOut);
+    return stringOut;
   }
 
   include(value) {
@@ -111,11 +115,10 @@ class LinkedList {
   thisValue(idx) {
     let current = this.head;
     let i = 0;
-    let l = this.counter() - idx;
-    let k = this.counter() - 1;
+
     const a = [];
     while (current) {
-      if (i === k) {
+      if (i === idx) {
         a.push(current.value);
       }
       i++;
@@ -157,7 +160,6 @@ class Node {
 }
 const firstLinkedList = new LinkedList();
 const secondLinkedList = new LinkedList();
-const mergedList = new LinkedList();
 
 firstLinkedList.insert('2');
 firstLinkedList.insert('3');
@@ -167,28 +169,29 @@ secondLinkedList.insert('4');
 secondLinkedList.insert('9');
 secondLinkedList.insert('5');
 
-function mergeLists(l1, l2, l3) {
+function mergeLists(l1, l2) {
+  let myMergeList = new LinkedList();
   let j = 0;
   let k = 0;
   let a = 0;
   for (let i = 0; i < (l1.counter() + l2.counter()); i++) {
     if (a === 0) {
-      l3.insert(l1.thisValue(j));
+      myMergeList.insert(l1.thisValue(j));
       a = 1;
       j++;
     } else if (a === 1) {
-      l3.insert(l2.thisValue(k));
+      myMergeList.insert(l2.thisValue(k));
       a = 0;
       k++;
     }
   }
-  console.log(l3);
-  return l3;
+  console.log(myMergeList);
+  return myMergeList;
 
 }
-let testList = mergeLists(firstLinkedList, secondLinkedList, mergedList);
+let testList = mergeLists(firstLinkedList, secondLinkedList);
 testList.toString();
-console.log(testList.toString());
+
 
 module.exports = {
   Node,
