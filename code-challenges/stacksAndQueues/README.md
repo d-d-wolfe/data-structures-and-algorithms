@@ -1,11 +1,11 @@
 # Stacks and Queues
-<!-- Short summary or background information -->
+Learned how to use stacks and queues
 
 ## Challenge
-<!-- Description of the challenge -->
+Create stacks and queues and successfully use all the methods available for each of them.
 
 ## Approach & Efficiency
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+I leveraged a reusable Node class for shared implementations between the classes,
 
 ## API
 <!-- Description of each method publicly available to your Stack and Queue-->
