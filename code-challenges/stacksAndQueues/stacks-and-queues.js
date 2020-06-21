@@ -33,21 +33,6 @@ class Stack {
     return value;
   }
 
-  onlyValues() {
-    let current = this.top;
-
-    let string = '';
-    while (current) {
-      string += ` { ${current.value} } `;
-      current = current.next;
-    }
-    return string;
-  }
-
-  isEmpty() {
-    return (this.top === null)
-  }
-
   isEmpty() {
     return (this.top === null);
 
@@ -58,8 +43,10 @@ class Stack {
 let stack = new Stack;
 
 stack.push(1);
-stack.push(2);
-stack.pop();
+// stack.push(2);
+// stack.push(3);
+// stack.push(4);
+// stack.pop();
 
 console.log(stack);
 
@@ -118,6 +105,7 @@ console.log(queue.peek());
 
 
 module.exports = {
-  stack: Stack,
-  queue: Queue,
+  Stack,
+  Node,
+  Queue
 };
