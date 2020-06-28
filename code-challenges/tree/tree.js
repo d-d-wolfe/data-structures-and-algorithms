@@ -14,7 +14,7 @@ class Tree {
   }
 
   preOrder(root) {
-    console.log(root.value);
+    // console.log(root.value);
     if (root.left !== null) {
       this.preOrder(root.left);
     }
@@ -27,10 +27,15 @@ class Tree {
     if (root.left !== null) {
       this.inOrder(root.left);
     }
-    console.log(root.value);
+    // console.log(root.value);
 
-    if (root.right !== null)
+    if (root.right !== null) {
       this.inOrder(root.right);
+    }
+
+    if (root === null) {
+      console.log('Error with inOrder');
+    }
   }
 
   postOrder(root) {
@@ -40,17 +45,72 @@ class Tree {
     if (root.right !== null) {
       this.postOrder(root.right);
     }
-    console.log(root.value);
+    if (root === null) {
+      console.log('Error with postOrder');
+    }
+  }
+
+  add(value) {
+    let newNode = new Node(this.value);
+
+    if (this.root.left !== null) {
+      if (this.root.value === newNode.value) {
+        let temp = this.root.value;
+        this.root.value = newNode.value;
+        newNode.left = temp;
+      } else {
+        this.preOrder(this.root.left);
+      }
+    }
+    if (this.root.right !== null) {
+      if (this.root.value === value) {
+        let temp = this.root.value;
+        this.root.value = newNode.value;
+        newNode.right = temp;
+      } else {
+        this.preOrder(this.root.right);
+      }
+    }
+  }
+
+  contains(value) {
+    let current = false;
+    if (this.root.left !== null) {
+      if (this.root.value === value) {
+        current = true;
+      } else {
+        this.preOrder(this.root.left);
+      }
+    }
+
+    if (this.root.right !== null) {
+      if (this.root.value === value) {
+        current = true;
+      } else {
+        this.preOrder(this.root.right);
+      }
+    }
+    return current;
   }
 }
 
 let tree = new Tree();
+let node = new Node();
 
-tree.root = new Node(1);
-tree.root.left = new Node (2);
-tree.root.right = new Node(3);
-tree.root.left.left = new Node(4);
-tree.root.left.right = new Node(5);
+tree.root = tree.add(1);
+tree.root.left = node(2);
+// tree.root.right = tree.node(3);
+// tree.root.left.left = tree.node(4);
+// tree.root.left.right = tree.node(5);
 
 
 tree.preOrder(tree.root);
+
+console.log(tree);
+
+
+
+module.exports = {
+  Node,
+  Tree,
+};
