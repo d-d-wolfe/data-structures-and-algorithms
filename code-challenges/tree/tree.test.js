@@ -78,4 +78,17 @@ describe('Tests traversal of a tree structure', () => {
     expect(bst.root.right.right.value).toEqual(14);
     expect(bst.root.right.left).toEqual(null);
   });
+
+  it('should return true if a specified value is in the tree and false if the specified value is not in the tree', () => {
+    let bst = new tree.BinarySearchTree();
+
+    bst.add(8);
+    bst.add(3);
+    bst.add(10);
+    bst.add(1);
+    bst.add(6);
+    bst.add(14);
+    expect(bst.contains(10)).toEqual(true);
+    expect(bst.contains(42)).toEqual(false);
+  });
 });

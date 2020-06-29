@@ -98,11 +98,26 @@ class BinarySearchTree {
   add(value) {
     this.root = this.insert(this.root, value);
   }
+
+  search(root, value) {
+    if (root === null) {
+      return false;
+    }
+    else if (value < root.value) {
+      return this.search(root.left, value);
+    }
+    else if (value > root.value) {
+      return this.search(root.right, value);
+    }
+    else {
+      return true;
+    }
+  }
+  contains(value) {
+    return this.search(this.root, value);
+  }
 }
 
-// contains(value) {
-
-// }
 
 
 let bst = new BinarySearchTree();
@@ -112,16 +127,6 @@ bst.add(3);
 bst.add(10);
 
 console.log(bst);
-
-// tree.root = new Node(1);
-// tree.root.left = new Node(2);
-// tree.root.right = new Node(3);
-// tree.root.left.left = new Node(4);
-// tree.root.left.right = new Node(5);
-
-
-// console.log(tree.postOrder(tree.root));
-
 
 
 module.exports = {
