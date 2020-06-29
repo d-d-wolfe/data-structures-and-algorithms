@@ -76,6 +76,21 @@ class Tree {
 
     return returnArr;
   }
+
+  findMaxValue(root, max) {
+    if (root.value > max) {
+      max = root.value;
+    }
+
+    if (root.left) {
+      max = this.findMaxValue(root.left, max);
+    }
+
+    if (root.right) {
+      max = this.findMaxValue(root.right, max);
+    }
+    return max;
+  }
 }
 
 class BinarySearchTree {
@@ -120,13 +135,16 @@ class BinarySearchTree {
 
 
 
-let bst = new BinarySearchTree();
+let newTree = new Tree();
+newTree.root = new Node(1);
+newTree.root.left = new Node(2);
+newTree.root.right = new Node(3);
+newTree.root.left.left = new Node(4);
+newTree.root.left.right = new Node(5);
 
-bst.add(8);
-bst.add(3);
-bst.add(10);
+console.log(newTree.findMaxValue(newTree.root, 0));
 
-console.log(bst);
+
 
 
 module.exports = {
