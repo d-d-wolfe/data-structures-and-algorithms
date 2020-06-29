@@ -13,104 +13,119 @@ class Tree {
     this.root = null;
   }
 
+
+
   preOrder(root) {
-    // console.log(root.value);
-    if (root.left !== null) {
-      this.preOrder(root.left);
+    let returnArr = [];
+    if (root === null) {
+      console.log('Node is null');
     }
-    if (root.right !== null) {
-      this.preOrder(root.right);
+    else {
+      returnArr.push(root.value);
+      if (root.left !== null) {
+        returnArr = returnArr.concat(this.preOrder(root.left));
+      }
+      if (root.right !== null) {
+        returnArr = returnArr.concat(this.preOrder(root.right));
+      }
     }
+    return returnArr;
   }
 
   inOrder(root) {
-    if (root.left !== null) {
-      this.inOrder(root.left);
-    }
-    // console.log(root.value);
-
-    if (root.right !== null) {
-      this.inOrder(root.right);
-    }
+    let returnArr = [];
 
     if (root === null) {
-      console.log('Error with inOrder');
+      console.log('Node is null');
     }
+    else {
+
+      if (root.left !== null) {
+        returnArr = returnArr.concat(this.inOrder(root.left));
+      }
+      // console.log(root.value);
+      returnArr.push(root.value);
+
+      if (root.right !== null) {
+        returnArr = returnArr.concat(this.inOrder(root.right));
+      }
+    }
+
+    return returnArr;
   }
 
   postOrder(root) {
-    if (root.left !== null) {
-      this.postOrder(root.left);
-    }
-    if (root.right !== null) {
-      this.postOrder(root.right);
-    }
+
+    let returnArr = [];
+
     if (root === null) {
-      console.log('Error with postOrder');
+      console.log('Node is null');
     }
-  }
+    else {
 
-  add(value) {
-    let newNode = new Node(this.value);
+      if (root.left !== null) {
+        returnArr = returnArr.concat(this.postOrder(root.left));
+      }
+      // console.log(root.value);
 
-    if (this.root.left !== null) {
-      if (this.root.value === newNode.value) {
-        let temp = this.root.value;
-        this.root.value = newNode.value;
-        newNode.left = temp;
-      } else {
-        this.preOrder(this.root.left);
+      if (root.right !== null) {
+        returnArr = returnArr.concat(this.postOrder(root.right));
       }
-    }
-    if (this.root.right !== null) {
-      if (this.root.value === value) {
-        let temp = this.root.value;
-        this.root.value = newNode.value;
-        newNode.right = temp;
-      } else {
-        this.preOrder(this.root.right);
-      }
-    }
-  }
-
-  contains(value) {
-    let current = false;
-    if (this.root.left !== null) {
-      if (this.root.value === value) {
-        current = true;
-      } else {
-        this.preOrder(this.root.left);
-      }
+      returnArr.push(root.value);
     }
 
-    if (this.root.right !== null) {
-      if (this.root.value === value) {
-        current = true;
-      } else {
-        this.preOrder(this.root.right);
-      }
-    }
-    return current;
+    return returnArr;
   }
 }
 
-let tree = new Tree();
-let node = new Node();
+class BinarySearchTree {
+  constuctor() {
+    this.root = null;
+  }
+  insert(root, value) {
+    if (root === null || root === undefined) {
+      root = new Node(value);
+      return root;
+    }
+    if (value < root.value) {
+      root.left = this.insert(root.left, value);
+    }
+    else if (value > root.value) {
+      root.right = this.insert(root.right, value);
+    }
+    return root;
+  }
+  add(value) {
+    this.root = this.insert(this.root, value);
+  }
+}
 
-tree.root = tree.add(1);
-tree.root.left = node(2);
-// tree.root.right = tree.node(3);
-// tree.root.left.left = tree.node(4);
-// tree.root.left.right = tree.node(5);
+// contains(value) {
+
+// }
 
 
-tree.preOrder(tree.root);
+let bst = new BinarySearchTree();
 
-console.log(tree);
+bst.add(8);
+bst.add(3);
+bst.add(10);
+
+console.log(bst);
+
+// tree.root = new Node(1);
+// tree.root.left = new Node(2);
+// tree.root.right = new Node(3);
+// tree.root.left.left = new Node(4);
+// tree.root.left.right = new Node(5);
+
+
+// console.log(tree.postOrder(tree.root));
 
 
 
 module.exports = {
   Node,
   Tree,
+  BinarySearchTree,
 };
