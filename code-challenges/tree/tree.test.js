@@ -91,4 +91,15 @@ describe('Tests traversal of a tree structure', () => {
     expect(bst.contains(10)).toEqual(true);
     expect(bst.contains(42)).toEqual(false);
   });
+
+  it('should find the largest value in the tree', () => {
+    let newTree = new tree.Tree();
+    newTree.root = new tree.Node(1);
+    newTree.root.left = new tree.Node(2);
+    newTree.root.right = new tree.Node(3);
+    newTree.root.left.left = new tree.Node(4);
+    newTree.root.left.right = new tree.Node(5);
+
+    expect(newTree.findMaxValue(newTree.root, 0)).toEqual(5);
+  });
 });
