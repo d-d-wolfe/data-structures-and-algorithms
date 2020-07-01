@@ -91,6 +91,27 @@ class Tree {
     }
     return max;
   }
+
+  breadthFirst() {
+    let results = [];
+    let queue = [];
+    let current = this.root;
+    queue.push(current);
+
+    while (queue.length) {
+      current = queue.shift();
+      results.push(current.value);
+
+      if (current.left) {
+        queue.push(current.left);
+      }
+
+      if (current.right) {
+        queue.push(current.right);
+      }
+    }
+    return results;
+  }
 }
 
 class BinarySearchTree {
@@ -142,7 +163,7 @@ newTree.root.right = new Node(3);
 newTree.root.left.left = new Node(4);
 newTree.root.left.right = new Node(5);
 
-console.log(newTree.findMaxValue(newTree.root, 0));
+console.log(newTree.breadthFirst(newTree.root));
 
 
 

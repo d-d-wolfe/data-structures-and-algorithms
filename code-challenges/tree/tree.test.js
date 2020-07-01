@@ -102,4 +102,19 @@ describe('Tests traversal of a tree structure', () => {
 
     expect(newTree.findMaxValue(newTree.root, 0)).toEqual(5);
   });
+
+  it('should use the breadth first traversal method', () => {
+    let newTree = new tree.Tree();
+    newTree.root = new tree.Node(2);
+    newTree.root.left = new tree.Node(7);
+    newTree.root.right = new tree.Node(5);
+    newTree.root.right.right = new tree.Node(9);
+    newTree.root.right.right.left = new tree.Node(4);
+    newTree.root.left.left = new tree.Node(2);
+    newTree.root.left.right = new tree.Node(6);
+    newTree.root.left.right.left = new tree.Node(5);
+    newTree.root.left.right.right = new tree.Node(11);
+
+    expect(newTree.breadthFirst(newTree.root)).toEqual([2, 7, 5, 2, 6, 9, 5, 11, 4]);
+  });
 });
