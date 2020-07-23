@@ -117,22 +117,6 @@ class HashMap {
   }
   }
 
-
-
-
-let map = new HashMap(1024);
-map.add("Jacob", "instructor");
-map.add("Jacob", "awesome");
-map.add('Alistair', 'ta');
-
-map.buckets.forEach((bucket, index) => {
-  console.log(index, bucket.values());
-});
-
-console.log(map.get("Jacob"));
-
-console.log(map.contains("Jacob"));
-
 module.exports = {
   HashMap,
   LinkedList,
