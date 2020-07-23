@@ -3,8 +3,8 @@
 const Hash = require('../hashtable/hashtable.js');
 const join = require('./left-join.js');
 
-let leftTable = new Hash.HashMap(5);
-let rightTable = new Hash.HashMap(5);
+let leftTable = new Hash.HashMap(10);
+let rightTable = new Hash.HashMap(10);
 
 leftTable.add('fond', 'enamored');
 leftTable.add('wrath', 'anger');
@@ -24,11 +24,11 @@ describe('Tests the leftJoin function', () => {
     
     expect(join(leftTable, rightTable)).toEqual(
       [
-        ['fond', 'enamored', 'averse'],
         ['wrath', 'anger', 'delight'],
         ['diligent', 'employed', 'idle'],
         ['outfit', 'garb', null],
-        ['guide', 'usher', 'follow']
+        ['guide', 'usher', 'follow'],
+        ['fond', 'enamored', 'averse'],
       ]
     );
   });
