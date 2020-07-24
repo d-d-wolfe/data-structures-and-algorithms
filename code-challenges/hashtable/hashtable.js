@@ -73,7 +73,7 @@ class HashMap {
     let index = this.getIndex(key);
     let list = this.buckets[index];
     if (!list) {
-      return null;
+      return [null];
     }
     let current = list.head;
     let arr = [];
