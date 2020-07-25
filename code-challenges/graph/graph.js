@@ -5,6 +5,7 @@ const util = require('util');
 class Vertex {
   constructor(value) {
     this.value = value;
+    
   }
 }
 
@@ -16,11 +17,12 @@ class Edge {
 }
 
 class Graph {
-  constructor() {
+  constructor(count) {
     this.adjacencylist = new Map();
+    
   }
 
-  addVertex(value) {
+  addNode(value) {
     const vertex = new Vertex(value);
     this.adjacencylist.set(vertex, []);
 
@@ -29,7 +31,7 @@ class Graph {
 
   addEdge(startVertex, endVertex) {
     if (!this.adjacencylist.has(startVertex) || !this.adjacencylist.has(endVertex)) {
-      console.log('Invalid Vertices');
+      return 'Invalid Vertices';
     }
     const edges = this.adjacencylist.get(startVertex);
     edges.push(new Edge(endVertex, 0));
@@ -37,84 +39,22 @@ class Graph {
 
   getNeighbors(vertex) {
     if (!this.adjacencylist.has(vertex)) {
-      console.log('Invalid Vertex');
+      return 'Invalid Vertex';
     }
 
     return [...this.adjacencylist.get(vertex)];
   }
 
-  breadthFirst (startVertex) {
-
-    const queue = [];
-    const visitedNodes = new Set();
-
-    queue.push(startVertex);
-    visitedNodes.add(startVertex);
-
-    while (queue.length) {
-      const current = queue.shift(); // the new pop() method
-      console.log(current);
-      const neighbors = this.getNeighbors(current);
-
-      // check if there are neighbors that haven't been visited
-      for(let edge of neighbors) {
-        const vertex = edge.vertex;
-        if (visitedNodes.has(vertex)) {
-          continue;
-        } else {
-          visitedNodes.add(vertex);
-        }
-        queue.push(vertex);
-      }
-    }
-  }
-
-  depthFirst(startVertex) {
-    const stack = [];
-    const visitedNodes = new Set();
-
-    stack.push(startVertex);
-    visitedNodes.add(startVertex);
-
-    while (stack.length) {
-      const current = stack.pop(); // the new pop() method
-      console.log(current);
-      const neighbors = this.getNeighbors(current);
-
-      // check if there are neighbors that haven't been visited
-      for(let edge of neighbors) {
-        const vertex = edge.vertex;
-        if (visitedNodes.has(vertex)) {
-          continue;
-        } else {
-          visitedNodes.add(vertex);
-        }
-        stack.push(vertex);
-      }
-    }
-  }
   getNodes() {
-    return this.adjacencylist;
+    let nodes = [];
+    for (let node of this.adjacencylist) {
+      nodes.push(node);
+    }
+    return nodes;
+  }
+  size() {
+    return this.adjacencylist.size;
   }
   }
 
-const graph = new Graph();
-
-const one = graph.addVertex(1);
-const two = graph.addVertex(2);
-const three = graph.addVertex(3);
-const four = graph.addVertex(4);
-
-graph.addEdge(one, two)
-graph.addEdge(two, four)
-graph.addEdge(four, three)
-graph.addEdge(three, two)
-
-
-console.log(util.inspect(graph, false, null, true));
-
-graph.breadthFirst(one);
-
-console.log('*************');
-
-graph.depthFirst(one);
+module.exports = Graph;
