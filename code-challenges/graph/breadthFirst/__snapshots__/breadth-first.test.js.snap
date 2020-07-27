@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing the breadth first graph traversal method should return all of the nodes in the graph 1`] = `
+Set {
+  Vertex {
+    "value": 1,
+  },
+  undefined,
+}
+`;
+
+exports[`Testing the breadth first graph traversal method should return all the nodes in the graph from a different starting point 1`] = `
+Set {
+  Vertex {
+    "value": 4,
+  },
+  undefined,
+}
+`;
