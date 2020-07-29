@@ -29,12 +29,12 @@ class Graph {
     return vertex;
   }
 
-  addEdge(startVertex, endVertex) {
+  addEdge(startVertex, endVertex, weight=0) {
     if (!this.adjacencylist.has(startVertex) || !this.adjacencylist.has(endVertex)) {
       return 'Invalid Vertices';
     }
     const edges = this.adjacencylist.get(startVertex);
-    edges.push(new Edge(endVertex, 0));
+    edges.push(new Edge(endVertex, weight));
   }
 
   getNeighbors(vertex) {
