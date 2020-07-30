@@ -48,11 +48,11 @@ stack.push(1);
 // stack.push(4);
 // stack.pop();
 
-console.log(stack);
+// console.log(stack);
 
-console.log(stack.peek());
+// console.log(stack.peek());
 
-console.log(stack.isEmpty());
+// console.log(stack.isEmpty());
 
 
 class Queue {
@@ -95,10 +95,10 @@ queue.enqueue(3);
 queue.enqueue(4);
 queue.dequeue();
 
-console.log(queue);
+// console.log(queue);
 
-console.log(queue.isEmpty());
-console.log(queue.peek());
+// console.log(queue.isEmpty());
+// console.log(queue.peek());
 
 
 

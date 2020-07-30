@@ -1,46 +1,36 @@
 'use strict';
 
 const Graph = require('../graph.js');
-// const Stack = require('../../stacksAndQueues/stacks-and-queues.js');
-let graph = new Graph();
 
-function depthFirst(startVertex) {
-  console.log(startVertex);
-  const stack = [];
-  const visited = new Set();
+class depthFirst extends Graph {
+  traverseDepthFirst(startVertex) {
+     const visitedNodes = [];
 
-  stack.push(startVertex);
-  visited.add(startVertex);
+     this.traverseDepthFirstHelper(visitedNodes, startVertex);
+     return visitedNodes;
+  }
 
-
-  let neighbors = this.getNeighbors(startVertex);
-
-  while (neighbors.length) {
+  traverseDepthFirstHelper(visitedNodes, startVertex) {
+    visitedNodes.push(startVertex.value);
+    const neighbors = this.getNeighbors(startVertex);
     for (let edge of neighbors) {
-      const vertex = edge.vertex;
-
-      if (!visited.has(vertex)) {
-        visited.add(vertex);
-        stack.push(vertex);
+      if (visitedNodes.includes(edge.vertex.value)) {
+        continue;
       }
+      this.traverseDepthFirstHelper(visitedNodes, edge.vertex);
     }
-    neighbors = this.getNeighbors(stack[stack.length -1]);
   }
+};  
 
-  while (stack.length) {
-    console.log(stack.pop);
-  }
-  return;
+module.exports = depthFirst;
 
+let graph = new depthFirst();
 
-  
-}
+let A = graph.addNode('A');
+let B = graph.addNode('B');
+let C = graph.addNode('C');
 
-graph.addNode('A');
-graph.addNode('B');
-graph.addNode('C');
+graph.addEdge(A, C);
+graph.addEdge(A, B);
 
-graph.addEdge('A', 'C');
-graph.addEdge('A', 'B');
-
-console.log(depthFirst('A'));
+console.log(graph.traverseDepthFirst(A));
